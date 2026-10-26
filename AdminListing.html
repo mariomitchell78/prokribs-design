@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Admin review listing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="frame.css">
+<script src="runtime.js"></script>
+<script src="frame.js" defer></script>
+</head>
+<body>
+<div class="pk-bar"><a href="index.html">All screens</a><span>24 Admin: review listing</span></div>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}a{color:#E8B24A;text-decoration:none}a:hover{color:#F3C873}</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #0E1116; color: #F4F2EE; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column">
+<div style="flex: 1; overflow: hidden; padding: 56px 20px 12px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px">
+<a href="AdminVerify.html" aria-label="Back" style="width: 44px; height: 44px; border-radius: 12px; background: #171B22; display: flex; align-items: center; justify-content: center; color: #F4F2EE"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></a>
+<div style="display: flex; flex-direction: column"><div style="font-size: 13px; color: #A3A9B4">Admin · Listing review</div><h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 26px; text-transform: uppercase">Henderson 2BR</h1></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<div style="height: 80px; border-radius: 12px; background: #1E232C; border: 1px solid #2A303B"></div>
+<div style="height: 80px; border-radius: 12px; background: #1E232C; border: 1px solid #2A303B"></div>
+<div style="height: 80px; border-radius: 12px; background: #1E232C; border: 1px solid #2A303B"></div>
+</div>
+<div style="display: flex; flex-direction: column; border-radius: 16px; background: #171B22; padding: 0 16px; font-size: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 46px; border-bottom: 1px solid #232833"><span>Photos</span><span style="color: #FFB4A8; font-weight: 600">3 of 5 minimum</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 46px; border-bottom: 1px solid #232833"><span>Host identity</span><span style="color: #5FD3A0">Verified</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 46px; border-bottom: 1px solid #232833"><span>Ownership or lease proof</span><a href="AdminListing.html" style="font-weight: 600">View document</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 46px; border-bottom: 1px solid #232833"><span>Minimum stay</span><span style="color: #5FD3A0">31 nights</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 46px"><span>Payout account</span><span style="color: #5FD3A0">Stripe connected</span></div>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #A3A9B4">Note to host (required for changes)
+<textarea style="height: 84px; border-radius: 12px; border: 1px solid #2A303B; background: #171B22; color: #F4F2EE; padding: 12px; font: 400 14px Inter, sans-serif; resize: none">Please add at least 2 more photos, including the kitchen and primary bedroom.</textarea></label>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 20px 30px; border-top: 1px solid #232833; background: #12161C">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<a href="AdminVerify.html" style="display: flex; align-items: center; justify-content: center; height: 54px; border-radius: 14px; background: #E8B24A; color: #0E1116; font-weight: 700; font-size: 15px">Request changes</a>
+<button type="button" disabled style="height: 54px; border-radius: 14px; border: 0; background: #2A303B; color: #A3A9B4; font: 700 15px Inter, sans-serif">Approve</button>
+</div>
+<div style="text-align: center; font-size: 12px; color: #A3A9B4">Approve unlocks once all checks pass</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

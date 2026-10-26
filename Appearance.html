@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Appearance</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="frame.css">
+<script src="runtime.js"></script>
+<script src="frame.js" defer></script>
+</head>
+<body>
+<div class="pk-bar"><a href="index.html">All screens</a><span>27 Appearance</span></div>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}a{color:#E8B24A;text-decoration:none}a:hover{color:#F3C873}</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: {{c.bg}}; color: {{c.text}}; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; padding: 56px 20px 30px; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<a href="Profile.html" aria-label="Back" style="width: 44px; height: 44px; border-radius: 12px; background: {{c.card}}; border: 1px solid {{c.line}}; display: flex; align-items: center; justify-content: center; color: {{c.text}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></a>
+<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 28px; text-transform: uppercase">Appearance</h1>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: {{c.muted}}">Tap a mode to try it. This screen switches live.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{modes}}" as="m" hint-placeholder-count="3">
+<button type="button" onClick="{{m.pick}}" aria-pressed="{{m.pressed}}" style="padding: 10px; border-radius: 16px; border: {{m.border}}; background: {{c.card}}; color: {{c.text}}; display: flex; flex-direction: column; align-items: center; gap: 10px; font: 600 13px Inter, sans-serif">
+<div style="width: 72px; height: 110px; border-radius: 12px; overflow: hidden; display: flex; border: 1px solid {{c.line}}">
+<div style="flex: 1; background: {{m.left}}; display: flex; flex-direction: column; gap: 6px; padding: 10px 6px"><div style="height: 6px; border-radius: 3px; background: #E8B24A"></div><div style="height: 18px; border-radius: 4px; background: {{m.leftCard}}"></div><div style="height: 18px; border-radius: 4px; background: {{m.leftCard}}"></div></div>
+<div style="flex: 1; background: {{m.right}}; display: flex; flex-direction: column; gap: 6px; padding: 10px 6px"><div style="height: 6px; border-radius: 3px; background: #E8B24A"></div><div style="height: 18px; border-radius: 4px; background: {{m.rightCard}}"></div><div style="height: 18px; border-radius: 4px; background: {{m.rightCard}}"></div></div>
+</div>
+{{m.label}}
+</button>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; border-radius: 16px; background: {{c.card}}; border: 1px solid {{c.line}}; padding: 0 16px; font-size: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 52px; border-bottom: 1px solid {{c.line}}"><span>Text size</span><span style="color: {{c.muted}}">Uses phone setting</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 52px; border-bottom: 1px solid {{c.line}}"><span>Reduce motion</span><span style="color: {{c.muted}}">Uses phone setting</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 52px"><span>Language</span><span style="color: {{c.muted}}">English</span></div>
+</div>
+<div style="padding: 14px; border-radius: 14px; background: {{c.card}}; border: 1px solid {{c.line}}; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: {{c.muted}}; font-weight: 600">Preview</div>
+<div style="font-weight: 600">Modern 3BR with home gym</div>
+<div style="font-size: 13px; color: {{c.muted}}">Summerlin · 14 min to facility</div>
+<div style="display: flex; align-items: center; justify-content: space-between"><span style="font-weight: 700">$6,000<span style="font-weight: 400; color: {{c.muted}}"> / month</span></span><span style="height: 40px; padding: 0 16px; border-radius: 12px; background: {{c.accent}}; color: {{c.onAccent}}; font-weight: 700; font-size: 14px; display: flex; align-items: center">Check dates</span></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { mode: 'System' }; }
+  renderVals() {
+    const dark = { bg: '#0E1116', card: '#171B22', line: '#2A303B', text: '#F4F2EE', muted: '#A3A9B4', accent: '#E8B24A', onAccent: '#0E1116' };
+    const light = { bg: '#F6F4EF', card: '#FFFFFF', line: '#E2DED6', text: '#14171C', muted: '#5B6270', accent: '#9A6A12', onAccent: '#FFFFFF' };
+    const mode = this.state.mode;
+    const c = mode === 'Light' ? light : dark;
+    const sel = (m) => mode === m ? '2px solid ' + c.accent : '1px solid ' + c.line;
+    const modes = [
+      { label: 'System', left: '#F6F4EF', leftCard: '#FFFFFF', right: '#0E1116', rightCard: '#1E232C' },
+      { label: 'Light', left: '#F6F4EF', leftCard: '#FFFFFF', right: '#F6F4EF', rightCard: '#FFFFFF' },
+      { label: 'Dark', left: '#0E1116', leftCard: '#1E232C', right: '#0E1116', rightCard: '#1E232C' }
+    ].map((m) => ({ ...m, border: sel(m.label), pressed: mode === m.label ? 'true' : 'false', pick: () => this.setState({ mode: m.label }) }));
+    return { c, modes };
+  }
+}
+</script>
+</body>
+</html>

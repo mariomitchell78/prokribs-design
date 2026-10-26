@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Terms and agreements</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="frame.css">
+<script src="runtime.js"></script>
+<script src="frame.js" defer></script>
+</head>
+<body>
+<div class="pk-bar"><a href="index.html">All screens</a><span>02b Terms and agreements</span></div>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}a{color:#E8B24A;text-decoration:none}a:hover{color:#F3C873}</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #0E1116; color: #F4F2EE; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; padding: 56px 24px 30px; gap: 16px">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<a href="SignUp.html" aria-label="Back" style="width: 44px; height: 44px; border-radius: 12px; background: #171B22; display: flex; align-items: center; justify-content: center; color: #F4F2EE"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></a>
+<div style="font-size: 13px; color: #A3A9B4">Step 1 of 5</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px">
+<div style="height: 4px; border-radius: 2px; background: #E8B24A"></div><div style="height: 4px; border-radius: 2px; background: #2A303B"></div><div style="height: 4px; border-radius: 2px; background: #2A303B"></div><div style="height: 4px; border-radius: 2px; background: #2A303B"></div><div style="height: 4px; border-radius: 2px; background: #2A303B"></div>
+</div>
+<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 34px; text-transform: uppercase">The fine print</h1>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #A3A9B4">Please read and agree to each one. Tap a title to open it.</p>
+<div style="display: flex; flex-direction: column; border-radius: 16px; background: #171B22; padding: 0 14px">
+<sc-for list="{{items}}" as="it" hint-placeholder-count="6">
+<label style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: {{it.border}}">
+<input type="checkbox" checked="{{it.on}}" onChange="{{it.toggle}}" style="width: 22px; height: 22px; margin: 2px 0 0; accent-color: #E8B24A; flex-shrink: 0">
+<span style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 14px; font-weight: 600; color: #F4F2EE">{{it.title}}<span style="color: #FFB4A8">{{it.req}}</span></span><span style="font-size: 12px; line-height: 1.4; color: #A3A9B4">{{it.sub}}</span></span>
+</label>
+</sc-for>
+</div>
+<button type="button" onClick="{{all}}" style="align-self: flex-start; height: 44px; padding: 0; border: 0; background: transparent; color: #E8B24A; font: 600 14px Inter, sans-serif">Agree to all</button>
+<p style="margin: 0; font-size: 11px; line-height: 1.5; color: #A3A9B4">* Required. We save the version you agreed to with the date and time. You must be 18 or older to use ProKribs.</p>
+<sc-if value="{{ready}}" hint-placeholder-val="{{ false }}">
+<a href="VerifyPhone.html" style="margin-top: auto; display: flex; align-items: center; justify-content: center; height: 54px; border-radius: 14px; background: #E8B24A; color: #0E1116; font-weight: 700; font-size: 16px">Agree and continue</a>
+</sc-if>
+<sc-if value="{{notReady}}" hint-placeholder-val="{{ true }}">
+<button type="button" disabled style="margin-top: auto; height: 54px; border-radius: 14px; border: 0; background: #2A303B; color: #A3A9B4; font: 700 16px Inter, sans-serif">Agree to the required items</button>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { on: [false, false, false, false, false, false] }; }
+  renderVals() {
+    const defs = [
+      ['Terms of Service', 'How ProKribs works, fees, and your responsibilities', true],
+      ['Privacy Policy', 'What we collect, why, and how we protect it', true],
+      ['Community Standards and two strike policy', 'House rules, conduct, and what leads to a strike', true],
+      ['Cancellation and refund policy', 'What happens if plans change', true],
+      ['I am 18 or older and agree to identity verification', 'Stripe checks your ID and selfie on our behalf', true],
+      ['Text message alerts', 'Booking updates and codes. Msg and data rates may apply', false]
+    ];
+    const on = this.state.on;
+    const items = defs.map(([title, sub, req], i) => ({
+      title, sub, req: req ? ' *' : '', on: on[i],
+      border: i === defs.length - 1 ? '0' : '1px solid #232833',
+      toggle: () => { const n = on.slice(); n[i] = !n[i]; this.setState({ on: n }); }
+    }));
+    const ready = defs.every(([, , req], i) => !req || on[i]);
+    return { items, ready, notReady: !ready, all: () => this.setState({ on: defs.map(() => true) }) };
+  }
+}
+</script>
+</body>
+</html>

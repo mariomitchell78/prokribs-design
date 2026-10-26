@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Notifications</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="frame.css">
+<script src="runtime.js"></script>
+<script src="frame.js" defer></script>
+</head>
+<body>
+<div class="pk-bar"><a href="index.html">All screens</a><span>26 Notifications</span></div>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}a{color:#E8B24A;text-decoration:none}a:hover{color:#F3C873}</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #0E1116; color: #F4F2EE; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; padding: 56px 20px 30px; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px">
+<a href="Profile.html" aria-label="Back" style="width: 44px; height: 44px; border-radius: 12px; background: #171B22; display: flex; align-items: center; justify-content: center; color: #F4F2EE"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></a>
+<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 28px; text-transform: uppercase">Notifications</h1>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<a href="Requested.html" style="display: flex; gap: 12px; padding: 14px; border-radius: 14px; background: #171B22; border: 1px solid #E8B24A; color: #F4F2EE">
+<div style="width: 10px; height: 10px; border-radius: 50%; background: #E8B24A; margin-top: 5px; flex-shrink: 0"></div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 3px"><div style="font-size: 14px; font-weight: 600">Dana is reviewing your request</div><div style="font-size: 12px; color: #A3A9B4">Summerlin 3BR · 2 min ago</div></div>
+</a>
+<a href="Saved.html" style="display: flex; gap: 12px; padding: 14px; border-radius: 14px; background: #171B22; color: #F4F2EE">
+<div style="width: 10px; height: 10px; border-radius: 50%; background: #E8B24A; margin-top: 5px; flex-shrink: 0"></div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 3px"><div style="font-size: 14px; font-weight: 600">Price drop on a saved home</div><div style="font-size: 12px; color: #A3A9B4">Henderson 2BR now $4,000 / month · 1 h ago</div></div>
+</a>
+<a href="UnderReview.html" style="display: flex; gap: 12px; padding: 14px; border-radius: 14px; background: #171B22; color: #F4F2EE">
+<div style="width: 10px; height: 10px; flex-shrink: 0"></div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 3px"><div style="font-size: 14px; font-weight: 600">You're verified</div><div style="font-size: 12px; color: #A3A9B4">You can now request to book · Yesterday</div></div>
+</a>
+</div>
+<h2 style="margin: 6px 0 0; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #A3A9B4; font-weight: 600">What we send</h2>
+<div style="display: flex; flex-direction: column; border-radius: 16px; background: #171B22; padding: 0 16px">
+<sc-for list="{{prefs}}" as="p" hint-placeholder-count="5">
+<div style="display: flex; align-items: center; gap: 12px; min-height: 54px; border-bottom: {{p.border}}">
+<div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">{{p.label}}</span><span style="font-size: 12px; color: #A3A9B4">{{p.sub}}</span></div>
+<button type="button" onClick="{{p.toggle}}" aria-label="{{p.label}}" aria-pressed="{{p.pressed}}" style="width: 50px; height: 30px; border-radius: 15px; border: 0; padding: 0; background: {{p.track}}; position: relative; flex-shrink: 0"><span style="position: absolute; top: 3px; left: {{p.knob}}; width: 24px; height: 24px; border-radius: 50%; background: #0E1116"></span></button>
+</div>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 12px; line-height: 1.5; color: #A3A9B4">Security alerts and payment receipts are always on.</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { on: [true, true, true, false, false] }; }
+  renderVals() {
+    const defs = [
+      ['Booking updates', 'Push, text and email'],
+      ['Messages', 'Push'],
+      ['Rent reminders', '3 days before each charge'],
+      ['Saved home alerts', 'Price drops and new dates'],
+      ['News and offers', 'Email']
+    ];
+    const on = this.state.on;
+    const prefs = defs.map(([label, sub], i) => ({
+      label, sub, pressed: on[i] ? 'true' : 'false',
+      track: on[i] ? '#E8B24A' : '#2A303B', knob: on[i] ? '23px' : '3px',
+      border: i === defs.length - 1 ? '0' : '1px solid #232833',
+      toggle: () => { const n = on.slice(); n[i] = !n[i]; this.setState({ on: n }); }
+    }));
+    return { prefs };
+  }
+}
+</script>
+</body>
+</html>

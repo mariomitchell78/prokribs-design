@@ -1,0 +1,18 @@
+x-dc { visibility: hidden; display: block; }
+html { background: #05070A; }
+body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 64px 0 32px; box-sizing: border-box; }
+x-dc > div { border-radius: 36px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px #20252E; }
+.pk-bar { position: fixed; top: 0; left: 0; right: 0; height: 48px; display: flex; align-items: center; gap: 16px; padding: 0 20px; background: rgba(5,7,10,0.9); border-bottom: 1px solid #1A1F27; font: 500 13px Inter, system-ui, sans-serif; color: #A3A9B4; z-index: 10; }
+.pk-bar a { color: #E8B24A; text-decoration: none; font-weight: 600; }
+.pk-bar a::before { content: "\2190  "; }
+
+html.thumb, html.thumb body { background: transparent; }
+html.thumb body { padding: 0; display: block; min-height: 0; }
+html.thumb .pk-bar { display: none; }
+html.thumb x-dc > div { border-radius: 0; box-shadow: none; }
+
+@media (max-width: 500px) {
+  body { padding: 0; justify-content: flex-start; }
+  .pk-bar { display: none; }
+  x-dc > div { border-radius: 0; box-shadow: none; }
+}

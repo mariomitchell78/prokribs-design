@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProKribs App Design</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root { --bg: #0E1116; --card: #171B22; --line: #2A303B; --text: #F4F2EE; --muted: #A3A9B4; --gold: #E8B24A; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; }
+header { max-width: 1280px; margin: 0 auto; padding: 56px 24px 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between; }
+.brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 2px; color: var(--gold); font-size: 18px; }
+h1 { margin: 6px 0 8px; font-family: 'Barlow Condensed', sans-serif; font-size: 52px; line-height: 1; text-transform: uppercase; }
+header p { margin: 0; color: var(--muted); max-width: 560px; line-height: 1.5; }
+.start { display: inline-flex; align-items: center; height: 52px; padding: 0 24px; border-radius: 14px; background: var(--gold); color: #0E1116; font-weight: 700; text-decoration: none; }
+main { max-width: 1280px; margin: 0 auto; padding: 0 24px 80px; }
+section { margin-top: 40px; }
+h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; text-transform: uppercase; margin: 0 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+.card { display: flex; flex-direction: column; gap: 10px; color: var(--text); text-decoration: none; font-size: 13px; font-weight: 600; }
+.card:hover span { color: var(--gold); }
+.card:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 18px; }
+.thumb { position: relative; width: 100%; aspect-ratio: 390 / 844; border-radius: 18px; overflow: hidden; background: var(--card); border: 1px solid var(--line); }
+.thumb iframe { position: absolute; top: 0; left: 0; width: 390px; height: 844px; border: 0; transform-origin: 0 0; pointer-events: none; }
+footer { max-width: 1280px; margin: 0 auto; padding: 0 24px 48px; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+<div>
+<div class="brand">PROKRIBS</div>
+<h1>App design prototype</h1>
+<p>Clickable screens for the ProKribs mobile app. Tap any screen to open it, then tap buttons and links to move through the flow. Names, prices and photos are sample data.</p>
+</div>
+<a class="start" href="Main.html">Start the prototype</a>
+</header>
+<main>
+{{SECTIONS}}
+</main>
+<footer>Design prototype only. Not a live product.</footer>
+<script>
+(function () {
+  function scale() {
+    document.querySelectorAll('.thumb').forEach(function (t) {
+      var f = t.querySelector('iframe');
+      f.style.transform = 'scale(' + (t.clientWidth / 390) + ')';
+    });
+  }
+  scale();
+  window.addEventListener('resize', scale);
+})();
+</script>
+</body>
+</html>

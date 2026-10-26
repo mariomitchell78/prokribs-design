@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Team housing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="frame.css">
+<script src="runtime.js"></script>
+<script src="frame.js" defer></script>
+</head>
+<body>
+<div class="pk-bar"><a href="index.html">All screens</a><span>22 Team housing</span></div>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}a{color:#E8B24A;text-decoration:none}a:hover{color:#F3C873}</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #0E1116; color: #F4F2EE; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; padding: 56px 20px 30px; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 2px"><div style="font-size: 13px; color: #A3A9B4">[Team] · 2027 season</div><h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 32px; text-transform: uppercase">Team housing</h1></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<div style="padding: 12px; border-radius: 14px; background: #171B22"><div style="font-size: 22px; font-weight: 700; color: #5FD3A0">11</div><div style="font-size: 12px; color: #A3A9B4">Housed</div></div>
+<div style="padding: 12px; border-radius: 14px; background: #171B22"><div style="font-size: 22px; font-weight: 700; color: #E8B24A">4</div><div style="font-size: 12px; color: #A3A9B4">Searching</div></div>
+<div style="padding: 12px; border-radius: 14px; background: #171B22"><div style="font-size: 22px; font-weight: 700">3</div><div style="font-size: 12px; color: #A3A9B4">Not started</div></div>
+</div>
+<div style="display: flex; flex-direction: column; border-radius: 16px; background: #171B22; padding: 0 14px">
+<sc-for list="{{roster}}" as="p" hint-placeholder-count="7">
+<div style="display: flex; align-items: center; gap: 12px; min-height: 54px; border-bottom: 1px solid #232833">
+<div style="width: 34px; height: 34px; border-radius: 50%; background: #2A303B; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700">{{p.initials}}</div>
+<div style="flex: 1; font-size: 14px">{{p.name}}</div>
+<span style="font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: {{p.bg}}; color: {{p.fg}}">{{p.status}}</span>
+</div>
+</sc-for>
+</div>
+<div style="font-size: 12px; line-height: 1.5; color: #A3A9B4">You see housing status only. Payments, addresses and messages stay private to each player.</div>
+<a href="TeamHousing.html" style="margin-top: auto; display: flex; align-items: center; justify-content: center; height: 54px; border-radius: 14px; background: #E8B24A; color: #0E1116; font-weight: 700; font-size: 16px">Invite players</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const S = {
+      Housed: ['#16352A', '#5FD3A0'],
+      Searching: ['#3A2E14', '#E8B24A'],
+      'Request pending': ['#13243A', '#7FB2FF'],
+      'Not started': ['#2A303B', '#F4F2EE']
+    };
+    const rows = [
+      ['MJ', 'Marcus J.', 'Request pending'],
+      ['TW', 'Tyler W.', 'Housed'],
+      ['DA', 'Devin A.', 'Housed'],
+      ['KR', 'Kai R.', 'Searching'],
+      ['LB', 'Luis B.', 'Searching'],
+      ['JO', 'Jordan O.', 'Not started'],
+      ['SM', 'Sam M.', 'Housed']
+    ];
+    return {
+      roster: rows.map(([initials, name, status]) => ({ initials, name, status, bg: S[status][0], fg: S[status][1] }))
+    };
+  }
+}
+</script>
+</body>
+</html>

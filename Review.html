@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Review your stay</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="frame.css">
+<script src="runtime.js"></script>
+<script src="frame.js" defer></script>
+</head>
+<body>
+<div class="pk-bar"><a href="index.html">All screens</a><span>16c Review your stay</span></div>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}a{color:#E8B24A;text-decoration:none}a:hover{color:#F3C873}</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #0E1116; color: #F4F2EE; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; padding: 56px 20px 30px; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px">
+<a href="Trip.html" aria-label="Back" style="width: 44px; height: 44px; border-radius: 12px; background: #171B22; display: flex; align-items: center; justify-content: center; color: #F4F2EE"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></a>
+<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 28px; text-transform: uppercase">How was your stay?</h1>
+</div>
+<div style="font-size: 13px; color: #A3A9B4">Summerlin 3BR · Feb 1 to May 31</div>
+<div style="display: flex; flex-direction: column; border-radius: 16px; background: #171B22; padding: 4px 16px">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="5">
+<div style="display: flex; align-items: center; justify-content: space-between; min-height: 52px; border-bottom: {{c.border}}">
+<span style="font-size: 14px">{{c.label}}</span>
+<div style="display: flex; gap: 2px">
+<sc-for list="{{c.stars}}" as="s" hint-placeholder-count="5">
+<button type="button" onClick="{{s.pick}}" aria-label="{{s.aria}}" style="width: 32px; height: 44px; border: 0; padding: 0; background: transparent; color: {{s.color}}; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg></button>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #A3A9B4">Public review<textarea placeholder="What should the next player know?" style="height: 96px; border-radius: 12px; border: 1px solid #2A303B; background: #171B22; color: #F4F2EE; padding: 12px; font: 400 15px Inter, sans-serif; resize: none"></textarea></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #A3A9B4">Private note to ProKribs (optional)<textarea style="height: 64px; border-radius: 12px; border: 1px solid #2A303B; background: #171B22; color: #F4F2EE; padding: 12px; font: 400 15px Inter, sans-serif; resize: none"></textarea></label>
+<p style="margin: 0; font-size: 12px; line-height: 1.5; color: #A3A9B4">Reviews post when both you and the host submit, or after 14 days. Your review shows your first name only.</p>
+<a href="Trip.html" style="margin-top: auto; display: flex; align-items: center; justify-content: center; height: 54px; border-radius: 14px; background: #E8B24A; color: #0E1116; font-weight: 700; font-size: 16px">Submit review</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { r: [5, 5, 4, 5, 0] }; }
+  renderVals() {
+    const labels = ['Cleanliness', 'Accuracy', 'Location and commute', 'Host communication', 'Value'];
+    const r = this.state.r;
+    const cats = labels.map((label, i) => ({
+      label, border: i === labels.length - 1 ? '0' : '1px solid #232833',
+      stars: [1, 2, 3, 4, 5].map((n) => ({
+        color: n <= r[i] ? '#E8B24A' : '#3A404B', aria: label + ' ' + n + ' stars',
+        pick: () => { const x = r.slice(); x[i] = n; this.setState({ r: x }); }
+      }))
+    }));
+    return { cats };
+  }
+}
+</script>
+</body>
+</html>

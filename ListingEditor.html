@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Listing editor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="frame.css">
+<script src="runtime.js"></script>
+<script src="frame.js" defer></script>
+</head>
+<body>
+<div class="pk-bar"><a href="index.html">All screens</a><span>20 Listing editor</span></div>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}a{color:#E8B24A;text-decoration:none}a:hover{color:#F3C873}</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #0E1116; color: #F4F2EE; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column">
+<div style="flex: 1; overflow: hidden; padding: 56px 20px 12px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px">
+<a href="HostHome.html" aria-label="Back" style="width: 44px; height: 44px; border-radius: 12px; background: #171B22; display: flex; align-items: center; justify-content: center; color: #F4F2EE"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></a>
+<div style="display: flex; flex-direction: column"><h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 26px; text-transform: uppercase">Henderson 2BR</h1><div style="font-size: 12px; color: #F0A35E; font-weight: 600">Draft · needs attention</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span style="font-weight: 600">Photos</span><span style="color: #F0A35E">3 of 5 required</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<div style="height: 96px; border-radius: 12px; background: #1E232C; border: 1px solid #2A303B"></div>
+<div style="height: 96px; border-radius: 12px; background: #1E232C; border: 1px solid #2A303B"></div>
+<div style="height: 96px; border-radius: 12px; background: #1E232C; border: 1px solid #2A303B"></div>
+<button type="button" aria-label="Add photo" style="height: 96px; border-radius: 12px; border: 1px dashed #E8B24A; background: transparent; color: #E8B24A; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>
+<button type="button" aria-label="Add photo" style="height: 96px; border-radius: 12px; border: 1px dashed #E8B24A; background: transparent; color: #E8B24A; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>
+</div>
+<div style="display: flex; flex-direction: column; border-radius: 16px; background: #171B22; padding: 0 16px; font-size: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 46px; border-bottom: 1px solid #232833"><span>Title and description</span><span style="color: #5FD3A0">Done</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 46px; border-bottom: 1px solid #232833"><span>Monthly price</span><span>$4,200</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 46px; border-bottom: 1px solid #232833"><span>Minimum stay</span><span style="color: #A3A9B4">31 nights, locked</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 46px; border-bottom: 1px solid #232833"><span>Proof of ownership or lease</span><span style="color: #5FD3A0">Uploaded</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 46px; border-bottom: 1px solid #232833"><span>House rules</span><span style="color: #5FD3A0">Done</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 46px"><span>Payouts set up</span><span style="color: #5FD3A0">Stripe connected</span></div>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #A3A9B4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A3A9B4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Street address is only shown to confirmed guests</div>
+</div>
+<div style="padding: 12px 20px 30px; border-top: 1px solid #232833; background: #12161C; display: flex; flex-direction: column; gap: 8px">
+<button type="button" disabled style="height: 54px; border-radius: 14px; border: 0; background: #2A303B; color: #A3A9B4; font: 700 16px Inter, sans-serif">Submit for review</button>
+<div style="text-align: center; font-size: 12px; color: #A3A9B4">Add 2 more photos to submit</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

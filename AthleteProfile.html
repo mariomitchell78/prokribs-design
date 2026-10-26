@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Playing status</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="frame.css">
+<script src="runtime.js"></script>
+<script src="frame.js" defer></script>
+</head>
+<body>
+<div class="pk-bar"><a href="index.html">All screens</a><span>05 Playing status</span></div>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}a{color:#E8B24A;text-decoration:none}a:hover{color:#F3C873}</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #0E1116; color: #F4F2EE; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; padding: 56px 24px 36px; gap: 18px">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<a href="VerifyID.html" aria-label="Back" style="width: 44px; height: 44px; border-radius: 12px; background: #171B22; display: flex; align-items: center; justify-content: center; color: #F4F2EE"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></a>
+<div style="font-size: 13px; color: #A3A9B4">Step 4 of 5</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px">
+<div style="height: 4px; border-radius: 2px; background: #E8B24A"></div><div style="height: 4px; border-radius: 2px; background: #E8B24A"></div><div style="height: 4px; border-radius: 2px; background: #E8B24A"></div><div style="height: 4px; border-radius: 2px; background: #E8B24A"></div><div style="height: 4px; border-radius: 2px; background: #2A303B"></div>
+</div>
+<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 34px; text-transform: uppercase">Your playing status</h1>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #A3A9B4">League<select style="height: 50px; border-radius: 12px; border: 1px solid #2A303B; background: #171B22; color: #F4F2EE; padding: 0 12px; font: 500 15px Inter, sans-serif"><option>[League]</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #A3A9B4">Team<select style="height: 50px; border-radius: 12px; border: 1px solid #2A303B; background: #171B22; color: #F4F2EE; padding: 0 12px; font: 500 15px Inter, sans-serif"><option>[Team]</option></select></label>
+</div>
+<fieldset style="border: 0; margin: 0; padding: 0">
+<legend style="font-size: 13px; color: #A3A9B4; margin-bottom: 8px">Status</legend>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 14px; background: #171B22">
+<button type="button" style="height: 44px; border: 0; border-radius: 10px; background: #E8B24A; color: #0E1116; font: 700 13px Inter, sans-serif">Active roster</button>
+<button type="button" style="height: 44px; border: 0; border-radius: 10px; background: transparent; color: #F4F2EE; font: 600 13px Inter, sans-serif">Free agent</button>
+<button type="button" style="height: 44px; border: 0; border-radius: 10px; background: transparent; color: #F4F2EE; font: 600 13px Inter, sans-serif">Practice squad</button>
+</div>
+</fieldset>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #A3A9B4">Season starts<input type="text" value="Feb 1, 2027" style="height: 50px; border-radius: 12px; border: 1px solid #2A303B; background: #171B22; color: #F4F2EE; padding: 0 12px; font: 500 15px Inter, sans-serif; min-width: 0"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #A3A9B4">Season ends<input type="text" value="May 31, 2027" style="height: 50px; border-radius: 12px; border: 1px solid #2A303B; background: #171B22; color: #F4F2EE; padding: 0 12px; font: 500 15px Inter, sans-serif; min-width: 0"></label>
+</div>
+<button type="button" style="display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 14px; background: #171B22; border: 1px dashed #2A303B; color: #F4F2EE; text-align: left; font: 500 14px Inter, sans-serif">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8B24A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"></path></svg>
+<span style="display: flex; flex-direction: column; gap: 2px">Prove your status<span style="font-size: 12px; color: #A3A9B4">Team email, contract page, or agent letter</span></span>
+</button>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px; border-radius: 14px; background: #171B22">
+<div style="font-size: 14px; line-height: 1.4">Hide my team from hosts until I send a request</div>
+<div role="img" aria-label="On" style="width: 50px; height: 30px; border-radius: 15px; background: #E8B24A; position: relative; flex-shrink: 0"><div style="position: absolute; right: 3px; top: 3px; width: 24px; height: 24px; border-radius: 50%; background: #0E1116"></div></div>
+</div>
+<a href="UnderReview.html" style="margin-top: auto; display: flex; align-items: center; justify-content: center; height: 54px; border-radius: 14px; background: #E8B24A; color: #0E1116; font-weight: 700; font-size: 16px">Submit for review</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
